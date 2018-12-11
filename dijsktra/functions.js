@@ -1,9 +1,14 @@
+ var arr = [];
+    var next_node;
+        var arr1 = [];
+    var g = new Graph();
 
-      var arr = [];
 
 makeGraph = function() {
 //after taking user i/p as .. count=num of nodes , edges and their weights and the source edge .. we get here
           var count = document.getElementById("count").value;
+          var src_node = document.getElementById("source").value;
+console.log(src_node);
          console.log(count);
     var myTableDiv = document.getElementById("myTable");
 //creating 2D array 
@@ -48,13 +53,15 @@ var weight ;
             //BUT IN THE LOG FOR 2 TIMES .. IT WAS SHOWIN G UNDEFINED(X)3 SOO LIKE THIS IS WORKING .. OS WHY NOT LOL 
             if(i>=3){
                                 console.log(node1+" "+node2+" "+weight);
+                                //just remove the second one for a uni driectional thingy
                                 arr[node1][node2]=weight ; 
+                              //  arr[node2][node1]=weight ; 
 
 }
                     }
 
 
-  draw(arr,count);
+  draw(arr,count,src_node);
 
     }
 
@@ -121,19 +128,13 @@ function addMoreTuples(){
 
    draw = function(arr,count) {
 
-    var g = new Graph();
          for(var i=0;i<count;i++)
      {
       for(var j=0;j<count;j++)
       {
         if(arr[i][j]!=100&&i!=j)
         {
-               g.addEdge(i,j,{ label: arr[i][j] },{
-  style: {
-    stroke: 'red',
-    fill: '#56f',  
-  }
-});
+               g.addEdge(i,j,{ label: arr[i][j] },{fill: 'white' } );
    }
       }
      }   
@@ -164,7 +165,7 @@ function addMoreTuples(){
       var algorithm = document.getElementById("algo");
       algorithm.innerHTML += '<p>THe algo is displayed here </p>' ; 
       algorithm.innerHTML += '<p>end of algorithm </p>';
-      dijTable.innerHTML += '<p><b>Current List ...</b></p>';
+      // dijTable.innerHTML += '<p><b>Current List ...</b></p>';
 
   var x = document.createElement("TABLE");
     x.border='1';
@@ -191,35 +192,113 @@ function addMoreTuples(){
 }
     dijTable.appendChild(x);
  
+
+
+
+var status = [] ; 
+     for(var x = 0;x<count;x++)
+        status[x]=0;
+
       for(var x = 0;x<count;x++)
         {
-       document.getElementById("algo").innerHTML +="The current node processed (i) is : " +i;
-       document.getElementById("algo").innerHTML +='<input type="button" id="add" value="Add Next Row" onclick="addDijTuples()">';
+        	// console.log("calling");
+        	    addDijTuples(status);
+
+       //document.getElementById("algo").innerHTML +="The current node processed (i) is : " + x;
+       // document.getElementById("algo").innerHTML +='<input type="button" id="add" value="Add Next Row" onclick="addDijTuples(status)">';
 //create tuple for this current node
 
         }
     }
     
     
-    function addDijTuples(){
+    function addDijTuples(status){
+
+// console.log("i got called again sighs {hi pranavi :P}");
+
+      status[src_node]=1;
+    var src_node = document.getElementById("source").value;
     var count = document.getElementById("count").value;
     var table = document.getElementById("dijsktraTable");
-
     var rowCount = table.rows.length;
 
     var row = table.insertRow(rowCount);
-                   
-      for(var i=0;i<count;i++)
+    var c=0;               
+      for(var i=0;i<=count;i++)
         {
-          console.log(arr[0][2])
+          
           //now here , if there is a direct path .. put the value and all .. if there isn't .. put infinity 
           //also , at the same time 
           // when you;re using (calculaitng from ) .... highlight the same node in the graph ... 
           // no idea how to access the graph .. but yeah sure
-          console.log(rowCount); 
-           row.insertCell(i).innerHTML= arr[rowCount][i+1];
-        
+          //console.log(rowCount); 
+          //thisi is for the first , soruce node ka table ...
+          if(rowCount==1){
+          if(i==0){
+            row.insertCell(i).innerHTML= src_node;
+}
+
+            else{
+            arr1[c]=arr[src_node][i-1];
+            c++;
+           row.insertCell(i).innerHTML= arr[src_node][i-1];
+           if(arr[src_node][i-1]!=100)
+           {
+           	 g.addEdge(src_node,i-1,{ label: arr[src_node][i-1] },{
+  style: {
+    stroke: 'red',
+    fill: 'red',  
+  }
+});
+           }
+         }
+        }
+          
+
+         else
+         {
+          
+          if(i==0){        
+             row.insertCell(i).innerHTML= next_node;
+             console.log("here1");
+
+}
+else
+{
+          console.log("here2");
+
+          //in this step, we slect min between prev entry and the entry from arr
+          //so , to store the prev entry at every point .. for comparision .. we  1D array  
+          //so , nxy node is the min one from that iteration and not already in the list .. 
+          //we aslo need an array to check whatever is alredy in the list 
+          
+          //ugh, do something to avoid loops or youll die lol , ok .. lopps for only src node  !
+          var bleh = Number(arr[src_node][next_node])+ Number(arr[next_node][i-1]) ; 
+
+           var num = Math.min(arr1[i-1],bleh);
+           row.insertCell(i).innerHTML = num ; 
+            arr1[c]=num;
+            c++;
+
+}
+
+         }
         }   
-      
-    }
+
+next_val = 100;
+for(var m=0;m<count;m++){
+                    if(arr1[m]<next_val&&status[m]==0)
+                      next_val=arr1[m];
+                  }
+
+
+                   console.log(next_val);
+                   for(var m=0;m<count;m++){
+                    if(arr1[m]==next_val)
+                      break;
+                  }
+                  console.log(m);
+                  next_node=m ; 
+                  status[next_node]=1;
+         }
     
