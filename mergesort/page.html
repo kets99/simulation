@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Merge Sort</title>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
+ <script type="text/javascript" src = "merge.js"></script>
+
+</head>
+<body>
+
+	<select id="authors" name="authors">
+  <option value ="1">1</option>
+  <option value ="2">2</option>
+  <option value ="3">3</option>
+  <option value ="4">4</option>
+  <option value ="5">5</option>
+  <option value ="6">6</option>
+  <option value ="7">7</option>
+  <option value ="8">8</option>
+  <option value ="9">9</option>
+  <option value ="10">10</option>
+	</select>
+<p>Click on add to enter numbers </p>
+<button type="button" onclick="mer()"> Add list. </button>
+
+<button type="button" onclick="sort(1,authors.value)"> simulate </button>
+
+<p id="demo"></p>
+	<div id="container"></div>
+<!-- //later on we can add functionnlity to add separated by space /// for now this is ok 
+ -->
+
+</body>
+</html>

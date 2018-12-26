@@ -8,8 +8,6 @@ makeGraph = function() {
 //after taking user i/p as .. count=num of nodes , edges and their weights and the source edge .. we get here
           var count = document.getElementById("count").value;
           var src_node = document.getElementById("source").value;
-console.log(src_node);
-         console.log(count);
     var myTableDiv = document.getElementById("myTable");
 //creating 2D array 
 //this 2D array is for the edges info .. in order to draw graph from it ... 
@@ -124,7 +122,6 @@ function addMoreTuples(){
 }
     
 
-//for now , im assuming that the taable is getting created and .. update ... and values are getting added to array arr
 
    draw = function(arr,count) {
 
@@ -151,7 +148,6 @@ function addMoreTuples(){
 //                     renderer.draw();
 //                 };
      
-     // now , for every row demo in the djskrtas algo , we'll be putting a "Next Step Button "
     
    };
     
@@ -261,7 +257,6 @@ var status = [] ;
           if(i==0){        
              row.insertCell(i).innerHTML= next_node;
              console.log("here1");
-
 }
 else
 {
@@ -279,7 +274,6 @@ else
            row.insertCell(i).innerHTML = num ; 
             arr1[c]=num;
             c++;
-
 }
 
          }

@@ -1,0 +1,37 @@
+MEEGE SORT 
+check list : 
+make them appear using time delay or out 
+put arrows betn them 
+maybe some pretty animation 
+numbers not apperaring ... lol !! 
+merge phase left 
+
+
+
+
+//ok after multiple dramassssss , lets try  using recursion now ... finallly !!!!!! 
+
+
+//so..welll an idea here could be to just .... make boxes for the ones that have alreadybeen .. like done 
+// bit it seems to be easier said tha n done 
+//i might as well just do  bit of quick and dirty ..... 
+// manupulte stuff and get it done 
+
+
+// function sort(low,high){
+
+//     var m = (low+high)/2 ; 
+//     sort(low,m); 
+//     sort(m+1,high); 
+
+
+
+// }
+
+
+
+
+today 
+we aim at 5 hours 
+now 9-10 
+then maybe a few at patus house .... 
