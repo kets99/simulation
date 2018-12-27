@@ -1,5 +1,5 @@
 async function insertionSort (items,time) {
-  for (var i = 0; i < items.length; i++) {
+  for (var i = 1; i < items.length; i++) {
     let value = items[i]
 
     //at this time , highlight the "value item " .... and then check if its at correct position or needs to be replaced ... 
@@ -8,18 +8,15 @@ async function insertionSort (items,time) {
       await sleep(time);
     console.log("after1");
 
-var bb = locations[i].elem ;
-var bb1 = locations[i].text ;
-
-bb.attr({
+paper.rect(50*i,30, 50, 50).attr({
   fill : "red",
   });
 
-// bb1.text(50*i+28, 30+28 , items[i]).attr({
-//   "font-weight": "bold" , 
-//   'font-size': '50px'
+paper.text(50*i+28, 30+28 , items[i]).attr({
+  "font-weight": "bold" , 
+  'font-size': '50px'
 
-// });
+});
 
        await sleep(time);
 
@@ -36,8 +33,8 @@ if(flag == 0)
   console.log(" animating"+j);
   var m = (i/2) ; 
 console.log(m);
-    bb.animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m, 'y': 100 }, 4000, "easeInOut" );
-    bb1.animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m, 'y': 100 , 'title' : value }, 4000, "easeInOut" );
+    paper.rect(50*i,30, 50, 50).animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m, 'y': 100 }, 4000, "easeInOut" );
+    paper.text(50*i,30,value).animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m, 'y': 100 , 'title' : value }, 4000, "easeInOut" );
 
             await sleep(time);
 
@@ -47,21 +44,14 @@ console.log(m);
 
 //     console.log("breakdone");
 
+
 // loop through the items in the sorted array (the items from the current to the beginning)
       // copy each item to the next one
-      items[j + 1] = items[j] ;
-
-      //when were replacing blah blah .. and changing values in thse arrays ... we must also change in location array na ketki 
-
-      locations[j+1] = locations[j]; 
-
-var mm = locations[j].elem ;
-var mm1 = locations[j].text ;
-
+      items[j + 1] = items[j] ; 
 
 var m = Number(j+1); 
-    mm.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m , 'y': 30 }, 4000, "easeInOut" );
-    mm1.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m, 'y': 30 , 'title' : items[j]}, 4000, "easeInOut" );
+    paper.rect(50*j,30, 50, 50).animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m , 'y': 30 }, 4000, "easeInOut" );
+    paper.text(50*j,30, items[j]).animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m, 'y': 30 , 'title' : items[j]}, 4000, "easeInOut" );
     }
     // the last item we've reached should now hold the value of the currently sorted item
     items[j + 1] = value 
@@ -71,19 +61,19 @@ if(flag == 1 )
 {
 
 var m = Number(j+1); 
-    bb.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m , 'y': 30 }, 4000, "easeInOut" );
-    bb1.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m, 'y': 30 ,'title' : value}, 4000, "easeInOut" );
+    paper.rect(50*m,100, 50, 50).animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m , 'y': 30 }, 4000, "easeInOut" );
+    paper.text(50*m,100,items[i]).animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m, 'y': 30 ,'title' : value}, 4000, "easeInOut" );
 
 }
 
    await sleep(time);
 
-bb.attr({
+paper.rect(50*m,30, 50, 50).attr({
   fill : "white" }) ;
 
 console.log("do I get exec ?? "); 
 
-bb1.attr({
+paper.text(50*m+28, 30+28 , value).attr({
   "font-weight": "bold" , 
     'font-size': '50px'
 });
@@ -111,48 +101,27 @@ function sleep(ms) {
 
 var paper ; 
 var rect ; 
-
-    var locations = []; 
 function sort(){
   //insertionSort(list);
 
   //the first creating of the cubes to store the numbers list 
 
 
-    paper = Raphael("container", window.innerWidth , window.innerHeight);
-
-
-var location = paper.set();
-
-function Item(elem, text) {
-    this.elem = elem;
-    this.text = text;
-}
-
-var item ; 
-
+    paper = Raphael("container", window.innerWidth , window.innerHeight); 
 for(i=0;i<list.length;i++){
-//making blocks for the very first time...
+//making blocks for the very first time... 
+ rect = paper.rect(50*i,30, 50, 50);
 
- item = new Item(
-            paper.rect(50*i,30, 50,50),
-            paper.text(50*i+28, 30+28 , list[i]).attr({
+ //adding text separately ... coz theres no parent child relation in raphael /// 
+var string = list[i] ; 
+var t = paper.text(50*i+28, 30+28 , list[i]).attr({
   "font-weight": "bold" , 
-   'font-size': '50px'
+                      'font-size': '50px'
 
-})  );
+});
 
-        
-
-    locations[i] = item;
-
-
-
- //adding text separately ... coz theres no parent child relation in raphael ///
 
 }
-
-location = paper.set();
 
 //user can select time 
 
