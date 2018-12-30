@@ -136,6 +136,7 @@ for(i=0;i<list.length;i++){
 
  item = new Item(
             paper.rect(50*i,30, 50,50),
+             //adding text separately ... coz theres no parent child relation in raphael ///
             paper.text(50*i+28, 30+28 , list[i]).attr({
   "font-weight": "bold" , 
    'font-size': '50px'
@@ -143,12 +144,8 @@ for(i=0;i<list.length;i++){
 })  );
 
         
-
     locations[i] = item;
 
-
-
- //adding text separately ... coz theres no parent child relation in raphael ///
 
 }
 
@@ -164,27 +161,28 @@ console.log(insertionSort(list,time)) // [ 17, 20, 26, 31, 44, 54, 55, 77, 93 ]
 const list = [7,8,2,4]
 
 
+//NOT USEFUL CODE ... 
+// BUT HAVENT DELETED .... COZ MAYBE WE MIGHT NEED IN FUTURE 
+
+// function rem()
+// {
+//   //  paper.rect(50*3,100, 50, 50).animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*2, 'y': 200 }, 4000, "easeInOut" );
 
 
-function rem()
-{
-  //  paper.rect(50*3,100, 50, 50).animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*2, 'y': 200 }, 4000, "easeInOut" );
-
-
-paper.rect(50*2,30, 50, 50).attr({
-  fill : "white",
+// paper.rect(50*2,30, 50, 50).attr({
+//   fill : "white",
   
-});
-
-
-  console.log("kdglgfikl");
-
-//    paper.rect(50*2,30, 50, 50).attr({
-//   fill : "green"
 // });
 
-  rect.removeData({ 'x': 50*2, 'y': 30 });
+
+//   console.log("kdglgfikl");
+
+// //    paper.rect(50*2,30, 50, 50).attr({
+// //   fill : "green"
+// // });
+
+//   rect.removeData({ 'x': 50*2, 'y': 30 });
 
 
 
-}
+// }
