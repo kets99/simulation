@@ -1,6 +1,11 @@
-function binarySearch(sortedArray, searchValue, minIndex, maxIndex,locations,val) {
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function binarySearch(sortedArray, searchValue, minIndex, maxIndex,locations,val) {
     'use strict';
 
+console.log("well hello");
     var currentIndex;
     var currentElement;
 
@@ -9,11 +14,13 @@ function binarySearch(sortedArray, searchValue, minIndex, maxIndex,locations,val
         var middleIndex = (minIndex + maxIndex) / 2 | 0;
         currentElement = sortedArray[middleIndex];
         
+        console.log("mid"+middleIndex+"curr"+currentElement);
         // It's the same as the value in the middle - we can return!
         if (currentElement === searchValue)
         {
             //in this case ... make it green !! :) 
 
+   await sleep(time);
 
 var bm = locations[val][middleIndex].elem ;
 var bm1 = locations[val][middleIndex].text ;
@@ -30,11 +37,14 @@ bm.attr({
         if (currentElement < searchValue) {
             //hence,search in the second half of the array ... so ... highlight that .. and draw it below 
 var m = Number(middleIndex + 1) ; 
+   await sleep(time);
+
             for(var i=m;i<=maxIndex;i++)
             {
-                console.log("val i "+val +"i "+i);
+                console.log("num 1 val i "+val +"i "+i);
                 var bm = locations[val][i].elem ;
                 var bm1 = locations[val][i].text ;
+
 
                 bm.attr({
                     fill : "yellow"
@@ -43,6 +53,7 @@ var m = Number(middleIndex + 1) ;
             }
 
                 var val = Number(val-1) ; 
+   await sleep(time);
 
             for(var i=m;i<=maxIndex;i++)
             {
@@ -59,7 +70,7 @@ var bb1 = Number(bb +28) ;
 
 })  );
 
- console.log("setting for val "+val+"i "+i);
+ console.log("aa setting for val "+val+"i "+i);
 
  locations[val][i] = item ; 
 
@@ -67,6 +78,7 @@ var bb1 = Number(bb +28) ;
             }
 
 
+   await sleep(time);
 
           return binarySearch(sortedArray, searchValue, middleIndex + 1, maxIndex,locations,val);
         }
@@ -75,9 +87,11 @@ var bb1 = Number(bb +28) ;
 
 
 var m = Number(middleIndex) ; 
+   await sleep(time);
+
             for(var i=minIndex;i<=m;i++)
             {
-                console.log("val i "+val +"i "+i);
+                console.log(" time 2 val i "+val +"i "+i);
                 var bm = locations[val][i].elem ;
                 var bm1 = locations[val][i].text ;
 
@@ -88,6 +102,7 @@ var m = Number(middleIndex) ;
             }
 
                 var val = Number(val-1) ; 
+   await sleep(time);
 
             for(var i=minIndex;i<=m;i++)
             {
@@ -104,31 +119,29 @@ var bb1 = Number(bb +28) ;
 
 })  );
 
- console.log("setting for val "+val+"i "+i);
+ console.log("bb setting for val "+val+"i "+i);
 
  locations[val][i] = item ; 
 
 
             }
+   await sleep(time);
 
-
-
-
-
-          return binarySearch(sortedArray, searchValue, minIndex, middleIndex - 1,locations,val);
+          return binarySearch(sortedArray, searchValue, minIndex, middleIndex,locations,val);
         }
     }
 
     return -1;
 }
+var time = 2000 ; 
 function bsr(){
     var val ; 
 
 // The array with all of our numbers
-var list = [1,2,4,5,10,12,44,78,99,304];
+var list = [1,2,4,5,10,12,44,78,99];
 
 // The value we are looking for in the array
-var valueToFind = 4;
+var valueToFind = 1;
 
 // The starting index point in the array
 var minIndex = 0;
@@ -169,6 +182,10 @@ location = paper.set();
 
 
 var result = binarySearch(list, valueToFind, minIndex, maxIndex,locations,val);
+
+var p = document.getElementById("sol");
+    p.innerHTML += '<p>Edges and Weights :</p>';
+
 
 console.log('The index position is: ', result);
 console.log('The value is: ', list[result]);
