@@ -16,6 +16,10 @@ var value = value - 1 ;
 console.log("lets see the list") ; 
 for(i=0;i<leftList.length;i++)
 console.log(list[i]); 
+
+
+
+
         leftList = mergeSort(leftList,time,value);
 console.log("right"+value);
 console.log("lets see the list") ; 
