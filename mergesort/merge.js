@@ -1,35 +1,128 @@
-    function mergeSort(list,time,value) {
 
-        var len = list.length;
+    async function mergeSort(list,time,value) {
+
+          'use strict';
+  var len = list.length;
+
+        console.log("lemgth"+len) ; 
+        // an array of length one or less is technically a sorted list.
+        // This is our base case.
         if (len < 2) {
+            console.log("am i even here ")
             return list;
         }
+        // round up so that first half is equal to or greater than second
+        // This means that if we have an odd numbered length,
+        // The first half will be greater than the second half
+        // Don't have to do this, but simply a stylistic choice.
         var middleIndex = Math.ceil(len / 2),
 
-            // Split current li into two: left and right list.
+            // Split current list into two: left and right list.
             leftList   = list.slice(0, middleIndex),
             rightList  = list.slice(middleIndex, len);
-console.log("left"+value);
+  
+ var m = value-1 ; 
+
+for(i=0;i<leftList.length;i++){
+
+console.log(locations[value][i].elem+"i am");
+
+var bm = locations[value][i].elem ;
+var bm1 = locations[value][i].text ;
+
+bm.attr({
+  fill : "red",
+  });
+
+var bb = Number(50) + Number( Number(5 - value)*50) ; 
+var bb1 = Number(bb +28) ;
+
+//height will be det by the leftlist.length ... 
+
+var bp = Number(list.length - i ) ; 
+var bp1 = Number(list.length - bp ) ; 
+
+ item = new Item(
+            paper.rect(50*bp1,bb, 50,50),
+             //adding text separately ... coz theres no parent child relation in raphael ///
+            paper.text(50*bp1+28, bb1 , list[i]).attr({
+  "font-weight": "bold" , 
+   'font-size': '25px'
+})  );
+
+ //now we'll just add this item to the locations array 
+locations[m][i] = item ; 
+}
+
+ var vv = await sleep(time);
+ console.log("hi");
+ console.log('left got called ');
+// console.log(m+"lets print m haha im actually pissed lol ");
+        leftList = mergeSort(leftList,time,m);
+   //await sleep(time);
+
+console.log("buuutttt?");
+
+console.log("1vaalue " + value +"i is "+ i);
+var k = i ;
+
+for(var i=0;i<rightList.length;i++){
+ var mm =   await sleep(time);
+
+   var kk = Number(k + i) ; 
+    var m = value-1 ; 
+
+console.log("2value " + value +"i is "+ kk);
+
+//for thisa na , we have to access stuff from the actual list that was passed ... not just the right list ... thats why 
+// we will usethe current index + leftlist.length .... hmm 
+
+var br = locations[m][kk].elem ;
+var br1 = locations[m][kk].text ;
+
+br.attr({
+  fill : "red",
+  });
+
+var bb = Number(50) + Number( Number(5-value)*50) ; 
+var bb1 = Number(bb +28) ;
 
 
-var value = value - 1 ; 
-console.log("lets see the list") ; 
-for(i=0;i<leftList.length;i++)
-console.log(list[i]); 
+//the width .. as in .. how muc h to the right the block will be drawn .. 
+// this will be decided aas a function of ... the rightlist.length ... 
 
 
+var bp1 = Number(list.length - kk ) ; 
+//var bp1 = Number(list.length - bp ) ; 
 
 
-        leftList = mergeSort(leftList,time,value);
-console.log("right"+value);
-console.log("lets see the list") ; 
+//height will be det by the rightlist.length ... 
+ item = new Item(
+            paper.rect(50*bp,bb, 50,50),
+             //adding text separately ... coz theres no parent child relation in raphael ///
+            paper.text(50*bp+28, bb1 , list[kk]).attr({
+  "font-weight": "bold" , 
+   'font-size': '50px'
 
-for(i=0;i<rightList.length;i++)
-console.log(list[i]); 
-        rightList = mergeSort(rightList,time,value);
-console.log("merge");
+})  );
+
+ var m = value-1 ; 
+
+//now well just add this item to the locations array 
+locations[m][kk] = item ;
+
+
+}
+var kk =    await sleep(time);
+
+console.log('right');
+
+        rightList = mergeSort(rightList,time,m);
+
+ var tt =   await sleep(time);
 
         return merge(leftList, rightList);
+
     }
 
     /**
@@ -38,8 +131,9 @@ console.log("merge");
      * 
      * Bubble up until we find the solution
      * */
-    function merge(leftList, rightList) {
-        console.log("called") ; 
+    function merge(leftList, rightList) {       
+     console.log("i got callled")
+
         var result = [];
         while (leftList.length > 0 && rightList.length > 0) {
             var leftItem = leftList[0],
@@ -70,7 +164,7 @@ console.log("merge");
         return result;
     }
 
-    var list = [11, 28, 8, 15, 50, 20, 90];
+    var list = [11, 29, 8, 15, 900, 20, 90];
 
 var paper ; 
 var rect ; 
@@ -121,6 +215,8 @@ for(i=0;i<list.length;i++){
 })  );
 
     locations[val][i] = item;
+
+    console.log(val+" "+i);
 }
 
 location = paper.set();
@@ -129,6 +225,15 @@ location = paper.set();
 
 var time = 1000 ; 
 
-console.log(mergeSort(list,time,val)) // [ 17, 20, 26, 31, 44, 54, 55, 77, 93 ]
+console.log(mergeSort(list,time,val)) ;// [ 17, 20, 26, 31, 44, 54, 55, 77, 93 ]
 
 }
+
+
+function sleep(ms) {
+    console.log("wtf");
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+//what we gonna do here is ... find the closest power to 2 of the given number of elements ... and make a locations multi dim array for the same ... 
+// and then everytime those get created ... just store them there ........ 
