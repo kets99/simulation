@@ -27,7 +27,7 @@ console.log(" coloring"+i);
 var flag =0 ;
    // store the current item value so it can be placed right
     for (var j = i - 1; j > -1 && items[j] > value; j--) {
-//now ,if at all it goes into this loop ... the i one will change its position and be sifted to the bottom .. temporarily .. 
+//now ,if at all it goes into this loop ... the i one will change its position and be shifted to the bottom .. temporarily .. 
 if(flag == 0)
 {
         flag = 1 ;
@@ -37,7 +37,7 @@ if(flag == 0)
   var m = (i/2) ; 
 console.log(m);
     bb.animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m, 'y': 100 }, 4000, "easeInOut" );
-    bb1.animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m, 'y': 100 , 'title' : value }, 4000, "easeInOut" );
+    bb1.animate({ 'width': 50, 'height': 50, 'fill': 'purple', 'x': 50*m + 28, 'y': 58 , 'title' : value }, 4000, "easeInOut" );
 
             await sleep(time);
 
@@ -61,7 +61,7 @@ var mm1 = locations[j].text ;
 
 var m = Number(j+1); 
     mm.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m , 'y': 30 }, 4000, "easeInOut" );
-    mm1.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m, 'y': 30 , 'title' : items[j]}, 4000, "easeInOut" );
+    mm1.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m + 28, 'y': 58 , 'title' : items[j]}, 4000, "easeInOut" );
     }
     // the last item we've reached should now hold the value of the currently sorted item
     items[j + 1] = value 
@@ -72,7 +72,7 @@ if(flag == 1 )
 
 var m = Number(j+1); 
     bb.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m , 'y': 30 }, 4000, "easeInOut" );
-    bb1.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m, 'y': 30 ,'title' : value}, 4000, "easeInOut" );
+    bb1.animate({ 'width': 50, 'height': 50, 'fill': 'blue', 'x': 50*m + 28, 'y': 58 ,'title' : value}, 4000, "easeInOut" );
 
 }
 
@@ -85,7 +85,7 @@ console.log("do I get exec ?? ");
 
 bb1.attr({
   "font-weight": "bold" , 
-    'font-size': '50px'
+    'font-size': '35px'
 });
 
   
@@ -113,7 +113,11 @@ var paper ;
 var rect ; 
 
     var locations = []; 
-function sort(){
+function sort(list){
+
+
+ // const list = [7,8,2,4]
+
   //insertionSort(list);
 
   //the first creating of the cubes to store the numbers list 
@@ -158,7 +162,6 @@ var time = 1000 ;
 console.log(insertionSort(list,time)) // [ 17, 20, 26, 31, 44, 54, 55, 77, 93 ]
 }
 
-const list = [7,8,2,4]
 
 
 //NOT USEFUL CODE ... 

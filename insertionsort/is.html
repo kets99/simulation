@@ -12,11 +12,59 @@
 <p> blue means shifting or replacement ... </p>
 <p> Purple is for the current node being shifted </p>
 
-	<button onclick="sort()">Click </button>
+	<!-- <button onclick="sort()">Click </button> -->
 
+
+<input type="text" name="number" placeholder="Enter no of nos" id="val" value=""> 
+  <div id="number1"></div>
+
+ 		<button onclick="enter()">Enter values </button>
 
 
 	<div id="container"></div>
 
 </body>
+
+  <script type="text/javascript">
+    function enter(){
+value = document.getElementById("val").value;
+      for (var i = 0; i < value; i++) {
+
+
+
+    // var addtxt = document.createElement("input");
+    // addtxt.type = "text";
+    // addtxt.name = "number5" ;
+    // addtxt.id = "idn"+i ;
+    // addtxt.value = "";
+
+document.getElementById("number1").innerHTML +='<input type="text" name="number5" placeholder="Enter no of nos" id="idn"+i value="">' ;  
+
+console.log(i) ;  
+    
+    }
+
+    document.getElementById("number1").innerHTML +='<input type="button" name="number" onclick="ssb()" value="Done">' ;  
+}
+
+
+function ssb() {
+  numbers = [] ;
+value = document.getElementById("val").value;
+var inputs=document.getElementsByName("number5");
+console.log(inputs) ;  
+
+    for (var i = 0; i < inputs.length; i++) {
+console.log(i) ;  
+console.log(inputs[i].value) ;  
+ numbers[i]=inputs[i].value; 
+    
+    }
+sort(numbers);
+
+  }
+
+
+  </script>
+
 </html>

@@ -1,4 +1,5 @@
 
+
 async function quickSort(list,value) {
     var len = list.length;
     if (len <= 1) {

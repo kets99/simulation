@@ -9,14 +9,99 @@
   <title>Selection sort</title>
   </head>
   <body>
+
+
+
 <p>Red is for when the position to change stuff at is found .... it goes in an order</p>
 
-<p> Green is for when the ith max or min element based on asc or desc has been found .... and the two(red and green) are going to be exchanged </p>
+<p> Green is for when the ith max or min element based on asc or desc has been found ....and the two(red and green) are going to be exchanged </p>
 
-<p> DOONE </p>
-  		<button onclick="ss()">Click </button>
+<p>algo in flow chart form or text </p>
+<h5>As we know , selection sort repeatedly finds the max or min element in the unsorted part of the array and places it appropriately</h5>
+<!-- 
+<div id="code"></div>
+
+<p>We are maintaining 2 arrays - sorted and unsorted </p>
+
+
+<div id="sorted">
+  <p> the sorted array is </p>
+  <p2 id="p2">ccc</p2>
+</div>
+
+<div id="unsorted">
+  <p> the unsorted array is</p>
+  <p2 id="p3">ccc</p2>
+  
+  
+</div>
+
+<div id="line1">
+  <p> we are taking our current max as (put value of arr[i] here)</p>
+</div>
+
+<div id="line2">
+  <p> updated maximum is </p>
+</div>
+
+
+<div id="line3">
+  <p> final maximum is </p>
+</div>
+ -->
+
+
+<!-- <p>now , we are comparing the value of i with j again and again ... 
+ --><p> DOONE </p>
+
+<input type="text" name="number" placeholder="Enter no of nos" id="val" value=""> 
+  <div id="number1"></div>
+
+ 		<button onclick="enter()">Enter values </button>
 
 	<div id="container"></div>
 
   </body>
+
+  <script type="text/javascript">
+    function enter(){
+value = document.getElementById("val").value;
+      for (var i = 0; i < value; i++) {
+
+
+
+    // var addtxt = document.createElement("input");
+    // addtxt.type = "text";
+    // addtxt.name = "number5" ;
+    // addtxt.id = "idn"+i ;
+    // addtxt.value = "";
+
+document.getElementById("number1").innerHTML +='<input type="text" name="number5" placeholder="Enter no of nos" id="idn"+i value="">' ;  
+
+console.log(i) ;  
+    
+    }
+
+    document.getElementById("number1").innerHTML +='<input type="button" name="number" onclick="ssb()" value="Done">' ;  
+}
+
+
+function ssb() {
+  numbers = [] ;
+value = document.getElementById("val").value;
+var inputs=document.getElementsByName("number5");
+console.log(inputs) ;  
+
+    for (var i = 0; i < inputs.length; i++) {
+console.log(i) ;  
+console.log(inputs[i].value) ;  
+ numbers[i]=inputs[i].value; 
+    
+    }
+ss(numbers);
+
+  }
+
+
+  </script>
 </html>

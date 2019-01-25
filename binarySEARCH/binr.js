@@ -134,14 +134,14 @@ var bb1 = Number(bb +28) ;
     return -1;
 }
 var time = 2000 ; 
-function bsr(){
+function bsr(list,key){
     var val ; 
 
 // The array with all of our numbers
-var list = [1,2,4,5,10,12,44,78,99];
+//var list = [1,2,4,5,10,12,44,78,99];
 
 // The value we are looking for in the array
-var valueToFind = 1;
+var valueToFind = key;
 
 // The starting index point in the array
 var minIndex = 0;

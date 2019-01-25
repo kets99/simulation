@@ -1,3 +1,4 @@
+
 async function Selection_Sort(arr, compare_Function) {
 
   function compare(a, b) {
@@ -11,6 +12,12 @@ async function Selection_Sort(arr, compare_Function) {
   compare_Function = compare_Function || compare;
 
   for (var i = 0; i < arr.length; i += 1) {
+
+// k = document.getElementById('sorted')
+// document.getElementById('p2').innerHTML = '0 to'+Number(i);
+// document.getElementById('p3').innerHTML = i+' to '+arr.length;
+
+       await sleep(time);
 
 var a = locations[i] ; 
 var bb = locations[i].elem ;
@@ -53,11 +60,12 @@ t.attr({
   fill : "green",
   });
        await sleep(time);
+
   bb.animate({ 'width': 50, 'height': 50, 'fill': 'white', 'x': 50*index, 'y': 30 }, 4000, "easeInOut" );
     bb1.animate({ 'width': 50, 'height': 50,'x': 50*index + 28, 'y': 58  , 'title' : min  }, 4000, "easeInOut" );
 
    t.animate({ 'width': 50, 'height': 50, 'fill': 'white', 'x': 50*i , 'y': 30 }, 4000, "easeInOut" );
-    t1.animate({ 'width': 50, 'height': 50,  'x': 50*i + 28, 'y': 58 , 'title' : list[i]}, 4000, "easeInOut" );
+    t1.animate({ 'width': 50, 'height': 50,  'x': 50*i + 28, 'y': 58 , 'title' : arr[i]}, 4000, "easeInOut" );
  
        await sleep(time);
        await sleep(time);
@@ -87,7 +95,12 @@ t.attr({
   //return sorted arr
   return arr;
 }
-function ss(){
+
+
+
+function ss(list){
+  //const list = [2,4,7,8] ;
+
     paper = Raphael("container", window.innerWidth , window.innerHeight);
 
 var location = paper.set();
@@ -107,7 +120,7 @@ for(i=0;i<list.length;i++){
              //adding text separately ... coz theres no parent child relation in raphael ///
             paper.text(50*i+28, 30+28 , list[i]).attr({
   "font-weight": "bold" , 
-   'font-size': '50px'
+   'font-size': '40px'
 
 })  );
         
@@ -133,4 +146,3 @@ var rect ;
 
     var locations = []; 
 
-const list = [7,8,2,4] ;

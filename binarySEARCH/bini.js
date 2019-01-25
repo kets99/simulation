@@ -22,8 +22,8 @@ function binarySearch(arr, target) {
 }
 
 
-    function bs(){
-    var list = [11, 28, 8, 15, 50, 20, 90];
+    function bs(list){
+    //var list = [11, 28, 8, 15, 50, 20, 90];
 
 
 
