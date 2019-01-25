@@ -58,7 +58,7 @@ var m = Number(middleIndex + 1) ;
             for(var i=m;i<=maxIndex;i++)
             {
 
-var bb = Number(50) + Number( Number(5 - val)*50) ; 
+var bb =Number(50+ Number(5- Number(5 - val))*50) ; 
 var bb1 = Number(bb +28) ;
 
  item = new Item(
@@ -107,7 +107,7 @@ var m = Number(middleIndex) ;
             for(var i=minIndex;i<=m;i++)
             {
 
-var bb = Number(50) + Number( Number(5 - val)*50) ; 
+var bb =Number(50+ Number(5- Number(5 - val))*50) ; 
 var bb1 = Number(bb +28) ;
 
  item = new Item(
