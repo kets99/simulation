@@ -12,12 +12,20 @@ async function Selection_Sort(arr, compare_Function) {
   compare_Function = compare_Function || compare;
 
   for (var i = 0; i < arr.length; i += 1) {
+fin = Number(arr.length-1);
+j_val = Number(i+1);
+k = document.getElementById('sorted')
+document.getElementById('p2').innerHTML = '0 to'+Number(i);
+document.getElementById('p3').innerHTML = i+' to '+fin;
+document.getElementById('l1').innerHTML = 'for i = 0 to '+fin;
+await sleep(500);
+document.getElementById('l1').elem.animate({ "fill": "yellow"}, 500);
+await sleep(500);
 
-// k = document.getElementById('sorted')
-// document.getElementById('p2').innerHTML = '0 to'+Number(i);
-// document.getElementById('p3').innerHTML = i+' to '+arr.length;
+document.getElementById('l12').innerHTML = 'minimum = '+arr[i];
 
-       await sleep(time);
+
+await sleep(time);
 
 var a = locations[i] ; 
 var bb = locations[i].elem ;
@@ -35,21 +43,20 @@ bb.attr({
 
     index = i;
     min = arr[i];
-    console.log("temp"+arr[i]);
 
-    for (var j = i + 1; j < arr.length; j += 1) {
-      console.log("well hello"+i);
-      if (compare_Function(min, arr[j]) > 0) {
+   for (var j = i + 1; j < arr.length; j += 1) {
+   document.getElementById('l2').innerHTML = '       for j = '+j_val+' to '+fin;
 
+   if (compare_Function(min, arr[j]) > 0) {
+   document.getElementById('l21').innerHTML = '      if (list[j] > minimum ) <br> mimimum = list[j]';
         //for desc , use > 
-        //for asc order , use < 
-
-
+        //for asc order , use <
         min = arr[j];
         index = j;
       }
     }
-    console.log("tempww"+arr[index]);
+
+document.getElementById('l22').innerHTML = 'new minimum = '+arr[index];
 
 var b = locations[index] ;
 
@@ -88,10 +95,7 @@ t.attr({
   });
 
        await sleep(time);
-
-
   }
-
   //return sorted arr
   return arr;
 }
@@ -145,4 +149,3 @@ var paper ;
 var rect ; 
 
     var locations = []; 
-
