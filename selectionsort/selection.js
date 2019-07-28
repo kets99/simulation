@@ -1,7 +1,8 @@
 
 async function Selection_Sort(arr, compare_Function) {
 
-  function compare(a, b) {
+  function compare(a, b) 
+  {
    return b - a;
    } 
   var min = 0;
@@ -13,16 +14,8 @@ async function Selection_Sort(arr, compare_Function) {
 
   for (var i = 0; i < arr.length; i += 1) {
 fin = Number(arr.length-1);
-j_val = Number(i+1);
-k = document.getElementById('sorted')
-document.getElementById('p2').innerHTML = '0 to'+Number(i);
-document.getElementById('p3').innerHTML = i+' to '+fin;
-document.getElementById('l1').innerHTML = 'for i = 0 to '+fin;
-await sleep(500);
-document.getElementById('l1').elem.animate({ "fill": "yellow"}, 500);
-await sleep(500);
-
-document.getElementById('l12').innerHTML = 'minimum = '+arr[i];
+j_val = Number(i);
+// k = document.getElementById('sorted')
 
 
 await sleep(time);
@@ -43,12 +36,18 @@ bb.attr({
 
     index = i;
     min = arr[i];
+   document.getElementById('l2').innerHTML = '      for j = '+j_val+' to '+fin;
+   document.getElementById('l21').innerHTML = '      if (list[j] > minimum ) <br> mimimum = list[j]';
 
    for (var j = i + 1; j < arr.length; j += 1) {
-   document.getElementById('l2').innerHTML = '       for j = '+j_val+' to '+fin;
+//highlight
+//timeout
 
-   if (compare_Function(min, arr[j]) > 0) {
-   document.getElementById('l21').innerHTML = '      if (list[j] > minimum ) <br> mimimum = list[j]';
+//unhighlight
+   if (compare_Function(min, arr[j]) < 0) {
+
+document.getElementById("l21").className = "highl";
+
         //for desc , use > 
         //for asc order , use <
         min = arr[j];
@@ -77,6 +76,8 @@ t.attr({
        await sleep(time);
        await sleep(time);
 
+document.getElementById("l21").className = "unhighl";
+
 
     temp = arr[i];
     arr[i] = min;
@@ -85,12 +86,12 @@ t.attr({
 locations[i] = b ; 
 locations[index] = a ; 
 
-
+//wite or background color 
 bb.attr({
   fill : "white",
   });
 
-t.attr({
+t.attr({      
   fill : "white",
   });
 
@@ -148,4 +149,4 @@ var time = 1000 ;
 var paper ; 
 var rect ; 
 
-    var locations = []; 
+var locations = []; 
